@@ -1,20 +1,22 @@
 {
-    "name": "Dota-Buff",
-    "short_name": "DotaBuff",
-    "start_url": "dotabuff.html",
-    "display": "standalone",
-    "background_color": "#1a1a1a",
-    "theme_color": "#ff6600",
-    "icons": [
-        {
-            "src": "icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "Dota-Buff",
+  "short_name": "DotaBuff",
+  "start_url": "/dota-buff/dotabuff.html",
+  "scope": "/dota-buff/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#ff6600",
+  "icons": [
+    {
+      "src": "/dota-buff/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dota-buff/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

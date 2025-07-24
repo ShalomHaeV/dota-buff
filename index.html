@@ -71,7 +71,7 @@
         }
     </style>
 </head>
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="manifest.json">
 <body>
     <div class="login-container">
         <div class="logo">DOTA-BUFF</div>
@@ -104,7 +104,7 @@
     </script>
 	<script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js')
+        navigator.serviceWorker.register('serviceworker.js')
             .then(registration => console.log('ServiceWorker registered'))
             .catch(error => console.log('ServiceWorker registration failed:', error));
     }
