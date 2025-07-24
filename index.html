@@ -105,7 +105,7 @@
     </script>
 	<script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('serviceworker.js')
+        navigator.serviceWorker.register('/dota-buff/serviceworker.js')
             .then(registration => console.log('ServiceWorker registered'))
             .catch(error => console.log('ServiceWorker registration failed:', error));
     }
