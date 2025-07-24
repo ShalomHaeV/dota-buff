@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Dota-Buff - Герои</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        #content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #menu {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+        #menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        #menu a:hover {
+            color: #ff6600;
+        }
+        h1 {
+            color: orange;
+        }
+        .content-image {
+            width: 800px;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        .article-content {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .hero-category {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .hero-category a {
+            color: orange;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .hero-category a:hover {
+            text-decoration: underline;
+        }
+        .welcome-user {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+        }
+    </style>
+</head>    
+<body>
+    <header>
+        <h1>DOTA-BUFF</h1>
+        <div class="welcome-user" id="welcomeUser"></div>
+    </header>
+    
+    <div id="content">
+        <div id="menu">
+            <ul>
+                <li><a href="dotabuff.html">Главная</a></li>
+                <li><a href="cybersport.html">Киберспорт</a></li>
+                <li><a href="artefacts.html">Предметы</a></li>
+                <li><a href="#" id="logoutLink">Выход</a></li>
+            </ul>
+        </div>
+        
+        <img src="heroes.jpg" alt="Герои Dota 2" class="content-image">
+        
+        <div id="article" class="article-content">
+            <h2>Герои Dota 2</h2>
+            <p>В Dota 2 на данный момент доступно более 120 уникальных героев, каждый со своими способностями, характеристиками и ролью в команде. Все герои делятся на несколько основных категорий по их роли в игре.</p>
+            
+            <div class="hero-category">
+                <h3>Керри (Carry)</h3>
+                <p>Герои, которые становятся сильнее по мере развития и могут решить исход игры на поздних стадиях:</p>
+                <ul>
+                    <li><strong>Anti-Mage</strong> - специалист по борьбе с магами, может быстро перемещаться по карте. <a href="hero_antimage.html">Подробнее</a></li>
+                    <li><strong>Phantom Assassin</strong> - обладает огромным критическим ударом и уклонением.</li>
+                    <li><strong>Terrorblade</strong> - мастер иллюзий и мощный боец в ближнем бою.</li>
+                </ul>
+            </div>
+            
+            <div class="hero-category">
+                <h3>Поддержка (Support)</h3>
+                <p>Герои, которые помогают команде, но обычно не требуют много золота для эффективности:</p>
+                <ul>
+                    <li><strong>Crystal Maiden</strong> - обеспечивает команду манной, имеет мощные заклинания контроля. <a href="hero_cm.html">Подробнее</a></li>
+                    <li><strong>Oracle</strong> - может исцелять союзников и накладывать мощные дебаффы на врагов.</li>
+                    <li><strong>Shadow Demon</strong> - специалист по контролю и ослаблению вражеских героев.</li>
+                </ul>
+            </div>
+            
+            <div class="hero-category">
+                <h3>Инициаторы (Initiator)</h3>
+                <p>Герои, которые начинают командные бои своими способностями:</p>
+                <ul>
+                    <li><strong>Magnus</strong> - может собрать всех врагов в одном месте своим ультом. <a href="hero_magnus.html">Подробнее</a></li>
+                    <li><strong>Enigma</strong> - обладает одним из самых мощных ультов в игре - Black Hole.</li>
+                    <li><strong>Tidehunter</strong> - его Ravage оглушает всех врагов на большой площади.</li>
+                </ul>
+            </div>
+            
+            <p>Выбор героя зависит от вашего стиля игры и состава команды. Новичкам рекомендуется начинать с более простых героев, таких как Lich или Wraith King, чтобы освоить основы игры, прежде чем переходить к более сложным персонажам.</p>
+        </div>
+    </div>
+
+    <script>
+        // Проверка авторизации
+        if (!localStorage.getItem('dotaBuffNickname')) {
+            window.location.href = 'login.html';
+        }
+
+        // Отображение ника пользователя
+        document.addEventListener('DOMContentLoaded', function() {
+            const nickname = localStorage.getItem('dotaBuffNickname');
+            if (nickname) {
+                document.getElementById('welcomeUser').textContent = `Привет, ${nickname}!`;
+            }
+        });
+
+        // Выход из системы
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('dotaBuffNickname');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

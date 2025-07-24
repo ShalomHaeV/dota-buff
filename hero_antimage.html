@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Anti-Mage | Dota-Buff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        #content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #menu {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+        #menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        #menu a:hover {
+            color: #ff6600;
+        }
+        h1 {
+            color: orange;
+        }
+        .hero-container {
+            display: flex;
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 30px;
+        }
+        .hero-info {
+            flex: 1;
+        }
+        .hero-abilities {
+            margin-top: 20px;
+        }
+        .ability {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            margin-right: 15px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .mana-break {
+            background-image: url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png');
+        }
+        .blink {
+            background-image: url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png');
+        }
+        .counterspell {
+            background-image: url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_counterspell.png');
+        }
+        .mana-void {
+            background-image: url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png');
+        }
+        .welcome-user {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+        }
+		/* Стили для секции комментариев */
+		.comments-section {
+			margin-top: 40px;
+			background: white;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+
+		.comment-form textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			min-height: 100px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			resize: vertical;
+		}
+
+		.comment-form button {
+			background: #1a1a1a;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.comments-list {
+			margin-top: 20px;
+		}
+
+		.comment {
+			border-bottom: 1px solid #eee;
+			padding: 15px 0;
+		}
+
+		.comment-header {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 5px;
+		}
+
+		.comment-author {
+			font-weight: bold;
+			color: #ff6600;
+		}
+
+		.comment-date {
+			color: #777;
+			font-size: 0.9em;
+		}
+
+		.comment-text {
+			line-height: 1.5;
+		}
+		/* Стили для секции комментариев */
+		.comments-section {
+			margin-top: 40px;
+			background: white;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+
+		.comment-form textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			min-height: 100px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			resize: vertical;
+		}
+
+		.comment-form button {
+			background: #1a1a1a;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.comments-list {
+			margin-top: 20px;
+		}
+
+		.comment {
+			border-bottom: 1px solid #eee;
+			padding: 15px 0;
+		}
+
+		.comment-header {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 5px;
+		}
+
+		.comment-author {
+			font-weight: bold;
+			color: #ff6600;
+		}
+
+		.comment-date {
+			color: #777;
+			font-size: 0.9em;
+		}
+
+		.comment-text {
+			line-height: 1.5;
+		}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DOTA-BUFF</h1>
+        <div class="welcome-user" id="welcomeUser"></div>
+    </header>
+    
+    <div id="content">
+        <div id="menu">
+            <ul>
+                <li><a href="dotabuff.html">Главная</a></li>
+                <li><a href="cybersport.html">Киберспорт</a></li>
+                <li><a href="heroes.html">Герои</a></li>
+                <li><a href="artefacts.html">Предметы</a></li>
+                <li><a href="#" id="logoutLink">Выход</a></li>
+            </ul>
+        </div>
+        
+        <div class="hero-container">
+            <img src="antimage.jpeg" alt="Anti-Mage" class="hero-image">
+            <div class="hero-info">
+                <h2>Anti-Mage</h2>
+                <p><strong>Роль:</strong> Carry</p>
+                <p><strong>Сложность:</strong> Средняя</p>
+                <p>Anti-Mage - это agility-герой, специализирующийся на быстром фарме и борьбе с героями, зависящими от маны. Его способности позволяют ему мгновенно перемещаться, сжигать ману врагов и наносить огромный урон.</p>
+                
+                <div class="hero-abilities">
+                    <h3>Способности:</h3>
+                    <div class="ability">
+                        <div class="ability-icon mana-break"></div>
+                        <div>
+                            <h4>Mana Break</h4>
+                            <p>Каждая атака Anti-Mage сжигает ману врага и наносит дополнительный урон, равный сожженной мане.</p>
+                        </div>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon blink"></div>
+                        <div>
+                            <h4>Blink</h4>
+                            <p>Мгновенно перемещается на короткое расстояние. Одна из лучших способностей для передвижения по карте.</p>
+                        </div>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon counterspell"></div>
+                        <div>
+                            <h4>Counterspell</h4>
+                            <p>Дает сопротивление магическому урону и может отразить заклинание.</p>
+                        </div>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon mana-void"></div>
+                        <div>
+                            <h4>Mana Void (Ультимейт)</h4>
+                            <p>Наносит урон вражескому герою, основанный на недостающей мане.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+
+
+    <script>
+        if (!localStorage.getItem('dotaBuffNickname')) {
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const nickname = localStorage.getItem('dotaBuffNickname');
+            if (nickname) {
+                document.getElementById('welcomeUser').textContent = `Привет, ${nickname}!`;
+            }
+        });
+
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('dotaBuffNickname');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
+
+
+<--!

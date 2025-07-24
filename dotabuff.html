@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Dota-Buff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        header {
+            background-color: black;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        #content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #menu {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+        #menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        #menu a:hover {
+            color: #ff6600;
+        }
+        .content-image {
+            width: 800px;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        h1 {
+            color: orange;
+        }
+        .article-content {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .welcome-user {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+        }
+    </style>
+</head>  
+<link rel="manifest" href="/manifest.json">  
+<body>
+    <header>
+        <h1>DOTA-BUFF</h1>
+        <div class="welcome-user" id="welcomeUser"></div>
+    </header>
+    
+    <div id="content">
+        <div id="menu">
+            <ul>
+                <li><a href="cybersport.html">Киберспорт</a></li>
+                <li><a href="heroes.html">Герои</a></li>
+                <li><a href="artefacts.html">Предметы</a></li>
+                <li><a href="#" id="logoutLink">Выход</a></li>
+            </ul>
+        </div>
+        
+        <img src="DOTA.jpeg" alt="Dota 2" class="content-image">
+        
+        <div id="article" class="article-content">
+            <h2>Добро пожаловать на Dota-Buff!</h2>
+            <p>Dota 2 — это многопользовательская онлайн-игра в жанре MOBA, разработанная и изданная Valve Corporation. Игра является продолжением DotA — пользовательской карты для Warcraft III: Reign of Chaos и дополнения The Frozen Throne.</p>
+            
+            <p>На нашем сайте вы найдете самую актуальную информацию о Dota 2:</p>
+            <ul>
+                <li>Последние новости киберспортивных турниров и чемпионатов</li>
+                <li>Подробные характеристики всех героев с рекомендациями по игре</li>
+                <li>Полный перечень предметов с их свойствами и стратегиями использования</li>
+                <li>Гайды для новичков и продвинутых игроков</li>
+                <li>Аналитику текущего мета и популярные стратегии</li>
+            </ul>
+            
+            <p>Dota 2 остается одной из самых популярных киберспортивных дисциплин с многомиллионными призовыми фондами. The International — ежегодный чемпионат по Dota 2 — регулярно бьет рекорды по размерам призовых в истории киберспорта.</p>
+        </div>
+    </div>
+
+    <script>
+        // Проверка авторизации
+        if (!localStorage.getItem('dotaBuffNickname')) {
+            window.location.href = 'login.html';
+        }
+
+        // Отображение ника пользователя
+        document.addEventListener('DOMContentLoaded', function() {
+            const nickname = localStorage.getItem('dotaBuffNickname');
+            if (nickname) {
+                document.getElementById('welcomeUser').textContent = `Привет, ${nickname}!`;
+            }
+        });
+
+        // Выход из системы
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('dotaBuffNickname');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

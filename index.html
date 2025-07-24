@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Dota-Buff - Вход</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            color: orange;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+            font-size: 16px;
+        }
+        button {
+            background-color: orange;
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff8c00;
+        }
+        .error {
+            color: #ff4444;
+            margin-top: 10px;
+            display: none;
+        }
+        .logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">DOTA-BUFF</div>
+        <h1>Вход в систему</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="nickname">Ваш ник в Dota 2:</label>
+                <input type="text" id="nickname" placeholder="Введите ваш игровой ник" required>
+            </div>
+            <div class="error" id="errorMessage">Ник должен содержать от 3 до 20 символов</div>
+            <button type="submit">Вход</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nickname = document.getElementById('nickname').value.trim();
+            const errorElement = document.getElementById('errorMessage');
+            
+            if (nickname.length < 3 || nickname.length > 20) {
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            errorElement.style.display = 'none';
+            localStorage.setItem('dotaBuffNickname', nickname);
+            window.location.href = 'dotabuff.html';
+        });
+    </script>
+</body>
+</html>
