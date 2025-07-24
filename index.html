@@ -102,5 +102,12 @@
             window.location.href = 'dotabuff.html';
         });
     </script>
+	<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceworker.js')
+            .then(registration => console.log('ServiceWorker registered'))
+            .catch(error => console.log('ServiceWorker registration failed:', error));
+    }
+</script>
 </body>
 </html>
