@@ -8,30 +8,30 @@
   "theme_color": "#ff6600",
   "icons": [
     {
-      "src": "192.png",
+      "src": "192.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpg",
       "purpose": "any maskable"
     },
     {
-      "src": "512.png",
+      "src": "512.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpg",
       "purpose": "any maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "1280.png",
+      "src": "1280.jpg",
       "sizes": "1280x720",
-      "type": "image/png",
+      "type": "image/jpg",
       "form_factor": "wide",
       "label": "Dota-Buff Desktop View"
     },
     {
-      "src": "360.png",
+      "src": "360.jpg",
       "sizes": "360x640",
-      "type": "image/png",
+      "type": "image/jpg",
       "form_factor": "narrow",
       "label": "Dota-Buff Mobile View"
     }
