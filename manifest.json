@@ -8,15 +8,32 @@
   "theme_color": "#ff6600",
   "icons": [
     {
-      "src": "/dota-buff/icon-192x192.png",
+      "src": "192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/dota-buff/icon-512x512.png",
+      "src": "512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+   
+  "screenshots": [
+    {
+      "src": "1280.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dota-Buff Desktop View"
+    },
+    {
+      "src": "360.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Dota-Buff Mobile View"
     }
   ]
 }
